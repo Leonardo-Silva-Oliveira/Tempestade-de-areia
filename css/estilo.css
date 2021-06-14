@@ -1,0 +1,19 @@
+#container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+			background-image: url("C:/Users/leosb/Documents/Aulas 2021/DJW/Space Invaders/imgs/Deserto.jpg");
+        }
+body { 
+		margin: 0px;
+		padding: 0px;
+		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;`
+		color: #bbbbbb;
+}
+canvas {
+		background: transparent;
+		left: 0px;
+		top: 0px;
+}
