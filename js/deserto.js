@@ -1,4 +1,4 @@
-class Starfield
+class Deserto
 {
 	// define as variaveis
 	
@@ -8,11 +8,11 @@ class Starfield
 	height ;
     minVelocityY ;
     maxVelocityY ;
-    qtdestars ;
-	stars;
+    qtdeareia ;
+	graos;
     intervalId ;
 	ctx;
-	star;
+	areia;
 
 	
 	  constructor(ctx) {
@@ -22,7 +22,7 @@ class Starfield
 	this.height = 0;
 	this.minVelocity = 100;
 	this.maxVelocity = 200;
-	this.qtdestars = 1000;
+	this.qtdeareia = 1000;
 	this.intervalId = 0;
 
     this.ctx = ctx;
@@ -57,14 +57,14 @@ addEventListener("keydown",
 	{
 		var key = event.keyCode;
 		if (key == 81){
-			self.qtdestars += 1000;
+			self.qtdeareia += 1000;
 			self.start()
-			console.table("qtdestars = " + self.qtdestars);
+			console.table("qtdeareia = " + self.qtdeareia);
 		}
 		if (key == 82){
-			self.qtdestars -= 1000;
+			self.qtdeareia -= 1000;
 			self.start()
-			console.table("qtdestars = "+ self.qtdestars);
+			console.table("qtdeareia = "+ self.qtdeareia);
 		}
 		if (key == 87){
 			self.minVelocity += 100;
@@ -84,16 +84,16 @@ addEventListener("keydown",
 start()
 {
 	
-	this.stars = [];
-	for(var i=0; i<this.qtdestars; i++) {
+	this.graos = [];
+	for(var i=0; i<this.qtdeareia; i++) {
 			var x = Math.random()*this.width;
 			
 			var y =  Math.random()*this.height;
 			var size =  Math.random()*3+1;
 			var vel = (Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity;
 			
-			this.star = new Star(x,y, size,vel );
-		this.stars[i] = this.star;
+			this.areia = new Areia(x,y, size,vel );
+		this.graos[i] = this.areia;
 	}
 	
 	var timeUpdate = 1000 / this.fps;
@@ -109,9 +109,9 @@ start()
 		this.ctx.fillStyle = 'transparent';
 		this.ctx.fillRect(0, 0, this.width, this.height);
 		this.ctx.fillStyle = '#8B4513';
-		for(var i=0; i<this.stars.length;i++) {
-			this.star = this.stars[i];
-			this.ctx.fillRect(this.star.x, this.star.y, this.star.size, this.star.size);
+		for(var i=0; i<this.graos.length;i++) {
+			this.areia = this.graos[i];
+			this.ctx.fillRect(this.areia.x, this.areia.y, this.areia.size, this.areia.size);
 		}
 	}
 
@@ -119,16 +119,16 @@ start()
   update(){ 
 	var dt = 3 / this.fps;
 
-	for(var i=0; i<this.stars.length; i++) {
-		var star = this.stars[i];
-		star.x += dt * star.velocity;
-		if(star.x > this.width) {
+	for(var i=0; i<this.graos.length; i++) {
+		var areia = this.graos[i];
+		areia.x += dt * areia.velocity;
+		if(areia.x > this.width) {
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 			var y = Math.random()*this.width;
 			var size =  Math.random()*3+2;
 			var vel = (Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity;
-			let s = new Star(0, y,size, vel);	
-		 	this.stars[i] = s;
+			let s = new Areia(0, y,size, vel);	
+		 	this.graos[i] = s;
 		}
 		
 	}

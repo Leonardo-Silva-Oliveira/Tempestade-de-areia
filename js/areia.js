@@ -1,4 +1,4 @@
-class Star{
+class Areia{
 	x;
 	y;
 	size;
